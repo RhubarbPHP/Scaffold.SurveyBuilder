@@ -22,8 +22,9 @@ class SurveyPresenter extends Form
         if (isset($this->model->SurveyID)){
 
             try {
-                $this->getSurvey();
-
+                $survey = $this->getSurvey();
+                $this->view->title = $survey->Title;
+                $this->view->question = "1. How tall is a tree?";
                 $this->view->hasNoSurvey = false;
             } catch (RecordNotFoundException $er){}
         }
